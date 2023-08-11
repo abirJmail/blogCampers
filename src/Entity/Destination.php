@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\DestinationRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,18 @@ class Destination
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
+
+    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'destination')]
+    private Collection $articles;
+
+    #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'destination')]
+    private Collection $categories;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +74,60 @@ class Destination
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): static
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles->add($article);
+            $article->addDestination($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): static
+    {
+        if ($this->articles->removeElement($article)) {
+            $article->removeDestination($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Category>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+            $category->addDestination($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): static
+    {
+        if ($this->categories->removeElement($category)) {
+            $category->removeDestination($this);
+        }
 
         return $this;
     }
