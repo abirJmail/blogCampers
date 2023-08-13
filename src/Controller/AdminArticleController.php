@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use DateTimeImmutable;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
@@ -26,6 +26,7 @@ class AdminArticleController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $article = new Article();
+        $article->setCreatedAt(new DateTimeImmutable());
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
