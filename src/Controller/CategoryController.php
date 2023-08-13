@@ -46,11 +46,14 @@ class CategoryController extends AbstractController
     public function show(Category $category): Response
     {
         $articles = $category->getArticles();
+        $destinations = $category->getDestination();
         return $this->render('category/show.html.twig', [
             'category' => $category,
             'articles' => $articles,
+            'destinations' => $destinations,
         ]);
     }
+
 
     // #[Route('/{id}/edit', name: 'app_category_edit', methods: ['GET', 'POST'])]
     // public function edit(Request $request, Category $category, EntityManagerInterface $entityManager): Response

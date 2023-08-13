@@ -45,11 +45,16 @@ class DestinationController extends AbstractController
     #[Route('/{id}', name: 'app_destination_show', methods: ['GET'])]
     public function show(Destination $destination): Response
     {
+        $articles = $destination->getArticles();
+        $categories = $destination->getCategories();
         return $this->render('destination/show.html.twig', [
             'destination' => $destination,
+            'articles' => $articles,
+            'categories' =>$categories,
         ]);
     }
 
+        
     // #[Route('/{id}/edit', name: 'app_destination_edit', methods: ['GET', 'POST'])]
     // public function edit(Request $request, Destination $destination, EntityManagerInterface $entityManager): Response
     // {
