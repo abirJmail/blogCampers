@@ -31,12 +31,44 @@
     <a href="{{ path('app_destination_edit', {'id': destination.id}) }}">edit</a> #}
 
     {# {{ include('destination/_delete_form.html.twig') }} #}
-    <div>
-    {% for article in articles %}
-        <div>Article {{article.title}} {{article.content}}</div>
-    {% endfor %}
-    </div>
-    <div>
+       <h1>Article  index of destination {{ destination.name }}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>IsPublished</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
+                <td>{{ article.image }}</td>
+                <td>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <div> 
+
     {% for categorie in categories %}
         <h2>Categorie {{categorie.name}}</h2>
     {% endfor %}
