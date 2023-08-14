@@ -45,8 +45,10 @@ class ArticleController extends AbstractController
     #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
+        $comments = $article-> getComment();
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'comment'=>$comments
         ]);
     }
 
