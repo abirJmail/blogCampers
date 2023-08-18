@@ -40,6 +40,18 @@
 <div>
 <a href="{{ path('app_comment_new', {'id':article.id}) }}">ajouter un commentair</a>
 </div>
+              <div> 
+    {% for categorie in categories %}
+        <h2> {{categorie.name}}</h2>
+        <a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
+    {% endfor %}
+    </div>
+          <div> 
+    {% for image in images %}
+        <h2> {{image.image}} images de l'article {{ article.title }}</h2>
+        <div> {{image.description}}</div>
+    {% endfor %}
+    </div>
 
         <div> 
     {% for comment in comment %}

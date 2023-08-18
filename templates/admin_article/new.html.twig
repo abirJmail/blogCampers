@@ -8,4 +8,8 @@
     {{ include('admin_article/_form.html.twig') }}
 
     <a href="{{ path('app_admin_article_index') }}">back to list</a>
+
+        <div>
+<a href="{{ path('app_admin_image_new', {'id':article.id}) }}">ajouter des images</a>
+</div>
 {% endblock %}

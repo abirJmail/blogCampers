@@ -34,6 +34,13 @@
         </tbody>
     </table>
 
+           <div> 
+    {% for image in images %}
+        <h2> {{image.image}} images de l'article {{ article.title }}</h2>
+        <div> {{image.description}}</div>
+    {% endfor %}
+    </div>
+
     <a href="{{ path('app_admin_article_index') }}">back to list</a>
 
     <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">edit</a>

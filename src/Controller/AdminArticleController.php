@@ -46,8 +46,10 @@ class AdminArticleController extends AbstractController
     #[Route('/{id}', name: 'app_admin_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
+        $images = $article-> getImages();
         return $this->render('admin_article/show.html.twig', [
             'article' => $article,
+            'images'=>$images
         ]);
     }
 
