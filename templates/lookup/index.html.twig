@@ -3,12 +3,12 @@
 {% block title %}Hello LookupController!{% endblock %}
 
 {% block body %}
-<div>
+{# <div>
 <form> 
 <input type = "search" name = "search" placeholder = "recherch...">
 <button type = "submit" >Recherch</button>
 </form>
-</div>
+</div> #}
  <table class="table">
         <thead>
             <tr>
@@ -37,7 +37,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">aucun article dispo</td>
             </tr>
         {% endfor %}
         </tbody>
