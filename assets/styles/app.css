@@ -1,0 +1,130 @@
+@import url(./home.css);
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* html {
+  font-size: 62.5% !important;  1rem = 10px 
+} 
+*/
+body {
+  padding: 0 1rem;
+  font-family: 'Handlee', cursive !important;
+}
+ 
+h1{
+  font-size: 2.8rem !important;
+}
+/*
+h2 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 2.2rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+h6 {
+  font-size: 1.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+} */
+
+img {
+  min-width: 100% !important;
+  max-width: 100%;
+  height: auto;
+}
+a{
+  text-decoration: none !important;
+}
+/* footer css  */
+.footer {
+  background-color: #000;
+  color: #fff;
+}
+.footer--adress {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.footer-container {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-around;
+}
+.footer--copyright {
+  border-top: 0.1rem solid #dcdcdc;
+  padding: 2rem;
+  text-align: center;
+}
+.footer--newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.Form__Input {
+  width: 80%;
+  padding: 1.2rem 1.4rem;
+  color: #000;
+  text-align: center;
+  background-color: #a7a095;
+  border: 0.1rem solid #dcdcdc;
+}
+::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.Form__button {
+  width: 18rem;
+  padding: 1.4rem 1.6rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  background-color: #000;
+  border: #000 solid;
+}
+
+.footer--social {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 
+      -------------------------------------------------------------------------midia------------------------------------------------------------------------------ */
+@media screen and (min-width: 75em) {
+  h1 {
+    font-size: 5.8rem !important;
+    font-weight: 800 !important;
+  }
+  /* footer */
+  .footer-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .footer--newsletter {
+    width: calc(100% / 4);
+  }
+}
