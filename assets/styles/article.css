@@ -1,0 +1,32 @@
+.bodyarticle{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+.articleCards {
+  width: 73%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+.categoryaside {
+  width: 25%;
+  color: black !important;
+}
+.categoryaside a{
+
+    color: black !important;
+  }
+.articlesTitle{
+    text-align: center;
+    padding: 2rem;
+}
+@media screen and (min-width: 75em) {
+    .articleCards {
+        width: 73%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+      }
+  }

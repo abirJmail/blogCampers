@@ -39,23 +39,22 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
-.articlesCard{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
-    
+.articlesCard {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
 }
-.articlesCard :hover{
-    background-color: rgba(0, 0, 0, 0.2) ;
+.articlesCard :hover {
+  background-color: rgba(0, 0, 0, 0.2);
 }
-.articlesCard>* :hover{
-    background-color: transparent ;
+.articlesCard > * :hover {
+  background-color: transparent;
 }
 /* 
 section logos */
 .logos {
-padding: 2rem 0;
+  padding: 2rem 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap:2rem;
+  gap: 2rem;
 }
 .logoHome img {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -112,18 +111,18 @@ padding: 2rem 0;
 }
 /* carrousel */
 .destinationHome {
-text-align: center;
-padding: 5rem;
+  text-align: center;
+  padding: 5rem;
 }
 
 /* 
       -------------------------------------------------------------------------midia------------------------------------------------------------------------------ */
 @media screen and (min-width: 75em) {
-    .aboutTunisiaCampres {
-        height: 40rem;
-        padding: 15rem 0;
-        text-align: center;
-      }
+  .aboutTunisiaCampres {
+    height: 40rem;
+    padding: 15rem 0;
+    text-align: center;
+  }
   .articleFlex {
     flex-direction: row;
   }

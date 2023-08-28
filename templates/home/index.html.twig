@@ -65,7 +65,9 @@
 						<div class="card-body">
 							<h5 class="card-title">{{ item.title }}</h5>
 							<p class="card-text">
-								{{ item.content}}
+								{{ item.content|slice(0, 150) }}...
+                                </p>
+                                <p class="card-text">
 								{% for categorie in categories %}
 									<a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
 								{% endfor %}
