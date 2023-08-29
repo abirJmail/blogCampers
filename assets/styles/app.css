@@ -1,5 +1,7 @@
 @import url(./home.css);
 @import url(./article.css);
+@import url(./categ.css);
+
 *,
 ::before,
 ::after {
@@ -15,12 +17,14 @@
 body {
   padding: 0 1rem;
   font-family: "Handlee", cursive !important;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   font-size: 2.8rem !important;
 }
-a{
+a {
   text-decoration: none !important;
 }
 /*
