@@ -26,7 +26,7 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>titre</th>
+                <th>Titre</th>
                 <th>Description</th>
                 <th>Image</th>
                 <th>actions</th>
@@ -40,8 +40,8 @@
                 <td>{{ category.description }}</td>
                 <td>{{ category.image }}</td>
                 <td>
-                    <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir les articles</button></a>
-                    <hr>
+                    {# <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir Categorie</button></a>
+                    <hr> #}
                     <a href="{{ path('app_admin_category_edit', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">modifier</button></a>
                 </td>
             </tr>

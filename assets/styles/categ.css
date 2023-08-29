@@ -81,6 +81,7 @@
 .categorie__imdb-button a {
   color: #000;
 }
+
 @media screen and (min-width: 75em) {
   .categorymain {
     grid-template-columns: repeat(3, 1fr);
