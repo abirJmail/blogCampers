@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Category index
 {% endblock %}
-
 {% block body %}
 	<div class="aboutTunisiaCampres">
 		<div class="custom-shape-divider-top-1693049623">
@@ -26,7 +24,7 @@
 		{% for category in categories %}
 			<div
 				class='categorie'>
-				{# <div key={i}  className='movie' style={{backgroundImage: `url(${movie.img})`, borderRadius: '15px'}}> #}
+{# <div  class='categorie' style={{backgroundImage: `url(${ category.img})`, borderRadius: '15px'}}> #}
 				<div class='categorie__cd'>
 					<h2 class='categorie__title'>{{ category.name }}</h2>
 					<p class='categorie__description'>{{  category.description|slice(0, 100)  }}</p>
