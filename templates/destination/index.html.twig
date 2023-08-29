@@ -1,42 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Destination index{% endblock %}
-
-{% block body %}
-    <h1>Destination index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for destination in destinations %}
-            <tr>
-                <td>{{ destination.id }}</td>
-                <td>{{ destination.name }}</td>
-                <td>{{ destination.description }}</td>
-                <td>{{ destination.image }}</td>
-                <td>
-                    <a href="{{ path('app_destination_show', {'id': destination.id}) }}">show</a>
-                    {# <a href="{{ path('app_destination_edit', {'id': destination.id}) }}">edit</a> #}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    {# <a href="{{ path('app_destination_new') }}">Create new</a> #}
-{% endblock %}
 {% block body %}
 	<div class="aboutTunisiaCampres">
 		<div class="custom-shape-divider-top-1693049623">
@@ -46,7 +10,7 @@
 				<path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
 			</svg>
 		</div>
-		<h1>Categories</h1>
+		<h1>Destination</h1>
 		<div class="custom-shape-divider-bottom-1693049726">
 			<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120" preserveaspectratio="none">
 				<path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -57,18 +21,18 @@
 	</div>
 
 	<div class="categorymain">
-		{% for category in categories %}
+		 {% for destination in destinations %}
 			<div
 				class='categorie'>
 				{# <div key={i}  className='movie' style={{backgroundImage: `url(${movie.img})`, borderRadius: '15px'}}> #}
 				<div class='categorie__cd'>
-					<h2 class='categorie__title'>{{ category.name }}</h2>
-					<p class='categorie__description'>{{  category.description|slice(0, 100)  }}</p>
+					<h2 class='categorie__title'>{{ destination.name }}</h2>
+		<p class='categorie__description'>{{  destination.description|slice(0, 100)  }}</p>
 				</div>
 				<div class='categorie__imdb'>
 
 					<button class='categorie__imdb-button' target='blank'>
-						<a href="{{ path('app_category_show', {'id': category.id}) }}">voir les articles</a>
+						<a href="{{ path('app_category_show', {'id': destination .id}) }}">voir les articles</a>
 					</button>
 
 				</div>
