@@ -21,7 +21,9 @@ class AdminArticleController extends AbstractController
             'articles' => $articleRepository->findAll(),
         ]);
     }
-// debut
+    
+
+
     #[Route('/new', name: 'app_admin_article_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -42,7 +44,6 @@ class AdminArticleController extends AbstractController
             'form' => $form,
         ]);
     }
-// fin
     #[Route('/{id}', name: 'app_admin_article_show', methods: ['GET'])]
     public function show(Article $article): Response
     {
