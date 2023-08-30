@@ -4,21 +4,42 @@
 {% endblock %}
 
 {% block body %}
+
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 	{% endfor %}
 
-	<h1>Register</h1>
-
+	<h1>Créez votre compte personnel</h1>
+	<hr/>
+<h2>Configurez vos informations personnelles pour continuer</h2>
+<div class="login">
 	{{ form_errors(registrationForm) }}
 
 	{{ form_start(registrationForm) }}
-	{{ form_row(registrationForm.email) }}
+	<div >
+	{{ form_row(registrationForm.email,{
+		            label: 'email',
+			                attr: {
+                    'class': 'form-control w-25',
+                },
+	}) }}
+	</div>
+	<div >
 	{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label: 'Mot de passe',
+			                attr : {
+                    'class': 'form-control w-25',
+                },
         }) }}
-	{{ form_row(registrationForm.agreeTerms) }}
-
-	<button type="submit" class="btn">Register</button>
+			</div>
+	<div >
+	{{ form_row(registrationForm.agreeTerms,{
+            label: 'J’accepte les conditions d’utilisation'
+        }) }}
+	</div>
+	<div >
+	<button type="submit" class="btn btn-lg btn-dark rounded-pill w-25 my-5">S’enregistrer</button>
 	{{ form_end(registrationForm) }}
+</div>
+</div>
 {% endblock %}
