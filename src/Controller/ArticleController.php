@@ -7,6 +7,7 @@ use App\Form\Article1Type;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\DestinationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,10 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     #[Route('/', name: 'app_article_index', methods: ['GET'])]
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository , CategoryRepository $categoryRepository,DestinationRepository $destinationRepository): Response
     {
         return $this->render('article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
+            'categories' => $categoryRepository->findAll(),
+            'destinations' => $destinationRepository->findAll(),
         ]);
     }
 

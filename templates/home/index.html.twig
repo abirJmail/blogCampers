@@ -1,20 +1,175 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<section class="aboutTunisiaCampres">
+		<div class="custom-shape-divider-top-1693049623">
+			<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120" preserveaspectratio="none">
+				<path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+				<path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+				<path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+			</svg>
+		</div>
+		<h1>TUNISIA CAMPRES</h1>
+		<h2>POUR UNE AVENTURE AUTHENTIQUE, WILD ET INOUBLIABLE</h2>
+		{# <P>Nous sommes une équipe passionnée, formée et mobilisée autour de la découverte de lieux insolites et méconnus qu'offre la Tunisie dans sa diversité naturelle.</P>
+								<P>
+									Nous associons le concept éco-responsable de “Randonnée & Camping” à des activités sportives et spirituelles.</P> #}
+		{# <button class="btn btn-outline-light w-25 " type="submit">EN SAVOIR PLUS</button> #}
+		<div class="custom-shape-divider-bottom-1693049726">
+			<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120" preserveaspectratio="none">
+				<path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+				<path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+				<path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+			</svg>
+		</div>
+	</section>
+	<section class="logos">
+		<div class="logoHome">
+			<img src={{ asset('images/home/19.png') }} alt="">
+			<h4>NATURE VIERGE</h4>
+		</div>
+		<div class="logoHome">
+			<img src={{ asset('images/home/20.png') }} alt="">
+			<h4>SPORT</h4>
+		</div>
+		<div class="logoHome">
+			<img src={{ asset('images/home/21.png') }} alt="">
+			<h4>ENCADREMENT COMPLET</h4>
+		</div>
+		<div class="logoHome">
+			<img src={{ asset('images/home/25.png') }} alt="">
+			<h4>AMBIANCE AMICALE</h4>
+		</div>
+	</section>
+	<section class="homeArticle">
+		<div class="ArticleTitle">
+			<h2>NOS DERNIERS ARTICLES</h2>
+			<h3>ACTUALITÉS & TIPS</h3>
+		</div>
+		<div class="articleFlex">
+			<div class="imgArticles">
+				<a class="nav-link active" aria-current="page" href="{{path('app_article_index')}}">
+					<h2>DÉCOUVREZ NOS ARTICLES</h2>
+                    <p>Notre Blog pour Une Inspiration pour de Nouveaux Itinéraires</p>
+				</a>
+			</div>
+			<div class="articles">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+				{% for item in articles|slice(0, 4)  %}
+					{# {% for item in articles %} #}
+					<div class="card mb-3 articlesCard ">
+						<img src="..." class="card-img-top" alt="...">
+						<div class="card-body">
+							<h5 class="card-title">{{ item.title }}</h5>
+							<p class="card-text">
+								{{ item.content|slice(0, 150) }}...
+                                </p>
+                                <p class="card-text">
+								{% for categorie in categories %}
+									<a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
+								{% endfor %}
+								{# <small>{{ item.category.name }}</small> #}
+								{# <a href="{{ path('app_category_show', {'id':item.categories.id}) }}">{{item.categories.name}}</a> #}
+							</p>
+							<p class="card-text ">
+								<small class="text-body-secondary">
+									<a href={{ path('app_article_show',{'id':item.id } ) }} class="btn btn-sm btn-dark rounded-pill w-50">Lire l'article</a>
+								</small>
+							</p>
+						</div>
+					</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/jmail/Desktop/PFE tunisian campers blog/blogCampers/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/jmail/Desktop/PFE tunisian campers blog/blogCampers/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<section class="destinationHome">
+	<h2 class="destinationHome">Destination Aventure</h2>
+	<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+		<div class="carousel-inner w-100">
+			<div class="carousel-item active  ">
+				<div class="row h-100">
+					<div class="col">
+                    <a class=" text-body" href="{{ path('app_destination_show', {'id': 8}) }}">
+						<img src={{ asset('images/home/bizert.png') }} class="d-block w-100 h-75 rounded" alt="...">
+						<h2 class="text-center">Bizert</h2>
+                        </a>
+					</div>
+					<div class="col ">
+                    <a class=" text-body" href="{{ path('app_destination_show', {'id': 6}) }}">
+						<img src={{ asset('images/home/douz.jpg') }} class="d-block w-100 h-75 rounded" alt="...">
+						<h2 class="text-center">Douz</h2>
+                        </a>
+					</div>
+					<div class="col ">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 7}) }}">
+						<img src={{ asset('images/home/jandouba.jpg') }} class="d-block w-100 h-75 rounded" alt="...">
+						<h2 class="text-center">Tabarka</h2>
+                        </a>
+					</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<div class="row h-100">
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 1}) }}">
+						<img src={{ asset('images/home/tozeur.jpg') }} class="d-block w-100  h-75 rounded" alt="...">
+						<h2 class="text-center">Tozeur</h2>
+					</a>
+                    </div>
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 2}) }}">
+						<img src={{ asset('images/home/mahdia.jpg') }} class="d-block w-100  h-75 rounded" alt="...">
+						<h2 class="text-center">Djerba</h2>
+					</a>
+                    </div>
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 3}) }}">
+						<img src={{ asset('images/home/nabeul.jpg') }} class="d-block w-100  h-75 rounded" alt="...">
+						<h2 class="text-center">Nabeul</h2>
+					</a>
+                    </div>
+
+				</div>
+			</div>
+
+            			<div class="carousel-item">
+				<div class="row h-100">
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 5}) }}">
+						<img src={{ asset('images/home/tozeur.jpg') }} class="d-block w-100 rounded h-75" alt="...">
+						<h2 class="text-center">Tataouin</h2>
+                        </a>
+					</div>
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 4}) }}">
+						<img src={{ asset('images/home/mahdia.jpg') }} class="d-block w-100 rounded h-75" alt="...">
+						<h2 class="text-center">Mahdia</h2>
+					</a>
+                    </div>
+					<div class="col">
+<a class=" text-body" href="{{ path('app_destination_show', {'id': 9}) }}">
+						<img src={{ asset('images/home/nabeul.jpg') }} class="d-block w-100 rounded h-75" alt="...">
+						<h2 class="text-center">Zaghouen</h2>
+					</a>
+                    </div>
+
+				</div>
+			</div>
+
+		</div>
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+</section>{% endblock %}
