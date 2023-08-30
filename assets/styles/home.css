@@ -1,0 +1,141 @@
+.aboutTunisiaCampres {
+  position: relative;
+  background-image: url("../../public/images/home/tunisiahome.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  height: 25rem;
+  padding: 5rem 0;
+  text-align: center;
+}
+.homeArticle {
+  color: black;
+  text-align: center;
+}
+.articleFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.imgArticles {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  width: 100%;
+  background-image: url("../../public/images/home/campresGroupe.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.7rem;
+  -webkit-border-radius: 0.7rem;
+  -moz-border-radius: 0.7rem;
+  -ms-border-radius: 0.7rem;
+  -o-border-radius: 0.7rem;
+}
+.articles {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.articlesCard {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+}
+.articlesCard :hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.articlesCard > * :hover {
+  background-color: transparent;
+}
+/* 
+section logos */
+.logos {
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.logoHome img {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+.logoHome h4 {
+  margin: 1rem;
+  text-align: center;
+}
+
+/* shape divider. */
+.custom-shape-divider-top-1693049623 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1693049623 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 30px;
+}
+
+.custom-shape-divider-top-1693049623 .shape-fill {
+  fill: #ffffff;
+}
+.custom-shape-divider-bottom-1693049726 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1693049726 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 32px;
+}
+
+.custom-shape-divider-bottom-1693049726 .shape-fill {
+  fill: #ffffff;
+}
+/* carrousel */
+.destinationHome {
+  text-align: center;
+  padding: 5rem;
+}
+
+
+/* 
+      -------------------------------------------------------------------------midia------------------------------------------------------------------------------ */
+@media screen and (min-width: 75em) {
+  .aboutTunisiaCampres {
+    height: 35rem;
+    padding: 15rem 0;
+    text-align: center;
+  }
+  .articleFlex {
+    flex-direction: row;
+  }
+  .logos {
+    padding: 5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  .imgArticles {
+    width: 39%;
+  }
+  .articles {
+    width: 60%;
+  }
+}

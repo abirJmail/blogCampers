@@ -1,0 +1,38 @@
+<footer>
+	<div class="footer">
+		<div class="footer-container">
+			<div class="footer--adress">
+				<a href="{{path('app_home')}}">
+					<img src={{ asset('logoBlack1.png') }} alt="logo wahite" width="150" height="75"></a>
+				<p>Lorem ipsum dolor sit amet, consectetur .</p>
+				<p>05-555-555-55</p>
+			</div>
+
+			<div class="footer--newsletter">
+				<h6>Commençons l’aventure ensemble...</h6>
+				<div>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</div>
+				<form class="d-flex Form" role="search" action="{{path('app_lookup')}}" method="GET">
+					<input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-light w-75 " type="submit">chercher</button>
+				</form>
+			</div>
+			<div class="footer--social">
+				<h6>Suivez-nous</h6>
+				<ul>
+					<li>FACEBOOK</li>
+					<li>INSTAGRAM</li>
+					<li>LINKDIN</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<p class="text-center ">&copy;
+			{{ 'now'|date('Y') }}
+			TUNISIA CAMPERS.Tous droits réservés.</p>
+	</div>
+</footer>
