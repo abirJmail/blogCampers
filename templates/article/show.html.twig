@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ article.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ article.content }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>IsPublished</th>
+                <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ article.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_article_index') }}">back to list of article  </a>
+<a href="{{ path('app_category_index') }}">back to list of category  </a>
+<a href="{{ path('app_destination_index') }}">back to list of destination</a>
+<div>
+<a href="{{ path('app_comment_new', {'id':article.id}) }}">ajouter un commentair</a>
+</div>
+              <div> 
+    {% for categorie in categories %}
+        <h2> {{categorie.name}}</h2>
+        <a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
+    {% endfor %}
+    </div>
+          <div> 
+    {% for image in images %}
+        <h2> {{image.image}} images de l'article {{ article.title }}</h2>
+        <div> {{image.description}}</div>
+    {% endfor %}
+    </div>
+
+        <div> 
+    {% for comment in comment %}
+        <h2> {{comment.User.email}} a dit</h2>
+        <div> {{comment.content}}</div>
+    {% endfor %}
+    </div>
+    {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }} #}
+{% endblock %}

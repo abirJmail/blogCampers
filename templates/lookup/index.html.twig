@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LookupController!{% endblock %}
+
+{% block body %}
+{# <div>
+<form> 
+<input type = "search" name = "search" placeholder = "recherch...">
+<button type = "submit" >Recherch</button>
+</form>
+</div> #}
+ <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>CreatedAt</th>
+                <th>IsPublished</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.content }}</td>
+                {# <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ article.isPublished ? 'Yes' : 'No' }}</td> #}
+                {# <td>{{ article.image }}</td> #}
+                <td>
+                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a> #}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">aucun article dispo</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
