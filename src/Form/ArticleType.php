@@ -3,6 +3,7 @@
 namespace App\Form;
 
 
+use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
@@ -41,6 +42,14 @@ class ArticleType extends AbstractType
                 'label' => 'Catégorie',
                 'attr' => [
                     'class' => 'form-control mt-3 mb-3 w-75'
+                ],
+            ])
+            ->add('user', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'email',
+                'label' => 'Auteur',
+                'attr' => [
+                    'class' => 'form-control mb-3'
                 ],
             ])
 

@@ -15,12 +15,15 @@
 } 
 */
 body {
-  padding: 0 1rem;
+
   font-family: "Handlee", cursive !important;
   display: flex;
   flex-direction: column;
 }
-
+main{
+  padding: 0 1rem;
+  margin-top: 7rem;
+}
 h1 {
   font-size: 2.8rem !important;
 }
@@ -119,7 +122,18 @@ a {
   flex-direction: column;
   gap: 2rem;
 }
-
+.login{
+display: flex;
+flex-direction: column;
+gap: 2rem;
+margin: 1rem ;
+}
+.navbar{
+  position: fixed !important;
+  width: 100%;
+  z-index: 1;
+ background-color: #fff;
+}
 /* 
       -------------------------------------------------------------------------midia------------------------------------------------------------------------------ */
 @media screen and (min-width: 75em) {
