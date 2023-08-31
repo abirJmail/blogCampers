@@ -16,6 +16,7 @@ class LookupController extends AbstractController
         $search = $request->query->get('search');
         $articles = $articleRepository -> findBySearch($search);
         // dd($articles);
+        // dd($search);
         return $this->render('lookup/index.html.twig', [
             'controller_name' => 'LookupController',
             'articles' => $articles,
