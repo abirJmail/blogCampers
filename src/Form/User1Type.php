@@ -13,10 +13,18 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+        ->add('email', TextType::class, [
+            'label' => '',
+            'attr' => [
+                'class' => 'form-control mb-3 w-50'
+            ],  ])
             // ->add('roles')
             ->add('plainPassword',TextType::class,
-            ['mapped' => false])
+            ['mapped' => false,
+            'attr' => [
+                'class' => 'form-control mb-3 w-50'
+            ],],
+            )
             // ->add('isVerified')
         ;
     }

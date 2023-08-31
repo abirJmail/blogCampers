@@ -15,13 +15,13 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 #[Route('/profile')]
 class ProfileController extends AbstractController
 {
-    // #[Route('/', name: 'app_profile_index', methods: ['GET'])]
-    // public function index(UserRepository $userRepository): Response
-    // {
-    //     return $this->render('profile/index.html.twig', [
-    //         'users' => $userRepository->findAll(),
-    //     ]);
-    // }
+    #[Route('/', name: 'app_profile_index', methods: ['GET'])]
+    public function index(UserRepository $userRepository): Response
+    {
+        return $this->render('profile/index.html.twig', [
+            'users' => $userRepository->findAll(),
+        ]);
+    }
 
     // #[Route('/new', name: 'app_profile_new', methods: ['GET', 'POST'])]
     // public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -56,6 +56,7 @@ class ProfileController extends AbstractController
     public function edit(Request $request, EntityManagerInterface $entityManager,UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = $this ->getUser();
+        
         $form = $this->createForm(User1Type::class, $user);
         $form->handleRequest($request);
 
@@ -77,14 +78,14 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    // #[Route('/{id}', name: 'app_profile_delete', methods: ['POST'])]
-    // public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-    //         $entityManager->remove($user);
-    //         $entityManager->flush();
-    //     }
+    #[Route('/{id}', name: 'app_profile_delete', methods: ['POST'])]
+    public function delete(Request $request, User $user, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($user);
+            $entityManager->flush();
+        }
 
-    //     return $this->redirectToRoute('app_profile_index', [], Response::HTTP_SEE_OTHER);
-    // }
+        return $this->redirectToRoute('app_profile_index', [], Response::HTTP_SEE_OTHER);
+    }
 }

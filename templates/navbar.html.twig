@@ -7,11 +7,11 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item">
+				<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="{{path('app_home')}}">Accueil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="{{path('app_article_index')}}">Blog Camping</a>
+					<a class="nav-link " aria-current="page" href="{{path('app_article_index')}}">Blog Camping</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('app_category_index')}}">Decouvrez la nature Tunisienne</a>
@@ -19,17 +19,15 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('app_destination_index')}}">Destinations</a>
 				</li>
-				{% if is_granted('ROLE_USER') %}
-					{# Affiche les infos uniquement lorsque l'utilisateur est connecté #}
+				{% if is_granted('ROLE_ADMIN') %}
+					{# Affiche les infos uniquement lorsque l'ADIMIN est connecté #}
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							espace admin
+							Espace Admin
 						</a>
 						<ul
 							class="dropdown-menu">
-							{# <li>
-															<a class="dropdown-item" href={{ path('app_article_new') }}>Rédiger un article</a>
-														</li> #}
+
 							<li>
 								<a class="dropdown-item" href="{{path('app_admin_article_index')}}">Rédiger un Article
 								</a>
@@ -55,18 +53,43 @@
 						</ul>
 					</li>
 
+
+				{% elseif is_granted('ROLE_USER')  %}
+
+
+					{# Affiche les infos uniquement lorsque l'utilisateur  est connecté #}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							BONJOUR
+							{{app.user.email}}
+						</a>
+						<ul class="dropdown-menu">
+							{# <li>
+								<a class="dropdown-item" href="{{path('app_comment_index')}}">Rédiger commentaires
+								</a>
+							</li> #}
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item" href="{{path('app_profile_edit', {'id':app.user.id})}}">Modifier votre profile</a>
+							</li>
+							<li>
+								<a href={{ path('app_logout') }} class="dropdown-item">Déconnexion</a>
+							</li>
+						</ul>
+					</li>
+
 				{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('app_register')}}">inscription</a>
+						<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{path('app_login')}}">identifecation</a>
+						<a class="nav-link" href="{{path('app_login')}}">Identifecation</a>
 					</li>
 				{% endif %}
 			</ul>
 			<form class="d-flex" role="search" action="{{path('app_lookup')}}" method="GET">
-				<input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-dark" type="submit">chercher</button>
+				<input class="form-control me-2" name="search" type="search" placeholder="Rechercher..." aria-label="Search">
+				<button class="btn btn-outline-dark" type="submit">Rechercher</button>
 			</form>
 		</div>
 	</div>
