@@ -23,10 +23,10 @@
 
     <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ user.id }}</td>
-            </tr>
+            </tr> #}
             <tr>
                 <th>Email</th>
                 <td>{{ user.email }}</td>
@@ -40,13 +40,13 @@
                 <td>{{ user.password }}</td>
             </tr> #}
             <tr>
-                <th>IsVerified</th>
+                <th>Verification</th>
                 <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_admin_user_index') }}">back to list</a>
+    <a href="{{ path('app_admin_user_index') }}">Retour a la liste</a>
 
     <a href="{{ path('app_admin_user_edit', {'id': user.id}) }}">Modifier</a>
 

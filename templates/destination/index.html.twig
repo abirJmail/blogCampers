@@ -23,19 +23,18 @@
 	<div class="categorymain">
 		 {% for destination in destinations %}
 			<div
-				class='categorie'>
-				{# <div  class='categorie' style={{backgroundImage: `url(${destination.img})`, borderRadius: '15px'}}> #}
-				<div class='categorie__cd'>
-					<h2 class='categorie__title'>{{ destination.name }}</h2>
-		<p class='categorie__description'>{{  destination.description|slice(0, 100)  }}</p>
+				class='categorie' style="background-image:url('{{ asset("images/destination") }}/{{ destination.image }}')">
+								<div class='categorie__imdb'>
+				<h2 class='categorie__title'>{{ destination.name }}</h2>
 				</div>
-				<div class='categorie__imdb'>
-
-					<button class='categorie__imdb-button' target='blank'>
+				<div class='categorie__cd'>
+	
+		<p class='categorie__description'>{{  destination.description|slice(0, 100)  }}</p>
+							<button class='categorie__imdb-button' target='blank'>
 						<a href="{{ path('app_category_show', {'id': destination .id}) }}">voir les articles</a>
 					</button>
-
 				</div>
+
 			</div>
 		{% endfor %}
 	</div>

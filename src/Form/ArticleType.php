@@ -6,6 +6,7 @@ namespace App\Form;
 use App\Entity\User;
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Destination;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -44,6 +45,15 @@ class ArticleType extends AbstractType
                     'class' => 'form-control mt-3 mb-3 w-75'
                 ],
             ])
+            ->add('destination', EntityType::class, [
+                'class' => Destination ::class,
+                'multiple' => true,
+                'choice_label' => 'name',
+                'label' => 'Destination',
+                'attr' => [
+                    'class' => 'form-control mt-3 mb-3 w-75'
+                ],
+            ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'email',
@@ -68,7 +78,16 @@ class ArticleType extends AbstractType
                     'type' => 'checkbox',
                 ]
             ])
-            // ->add('Publier', SubmitType::class, [
+
+            // ->add('roles', EntityType::class, [
+            //     'class' => User::class,
+            //     // 'choice_label' => 'email',
+            //     'label' => 'Roles',
+            //     'attr' => [
+            //         'class' => 'form-control mb-3'
+            //     ],
+            // ])
+            // ->add('Roles', SubmitType::class, [
             //     'attr' => [
             //         'class' => 'btn btn-primary rounded-pill mb-3'
             //     ]

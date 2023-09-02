@@ -28,14 +28,14 @@
 			<div class="articleCards">
 				{% for item in articles %}
 					<div class="card mb-3 ">
-						<img src="..." class="card-img-top" alt="...">
+						<img src="{{ asset('images/articles') }}/{{ item.image }}" class="card-img-top h-75" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">{{ item.title }}</h5>
 							<small class="text-body-secondary">
 								{{ item.createdAt ? item.createdAt|date('Y-m-d H:i:s') : '' }}
 							</small>
 							<p class="card-text">
-								{{ item.content|slice(0, 150) }}...
+								{{ item.content|slice(0, 120) }}...
 							</p>
 							{# <p class="card-text"> #}
 							{# {% for categorie in categories %}

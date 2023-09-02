@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Articles admin
+{% endblock %}
 
 {% block body %}
 	<div class="aboutTunisiaCampres">
@@ -20,39 +21,45 @@
 			</svg>
 		</div>
 	</div>
-    <a href="{{ path('app_admin_article_new') }}"><button class="btn btn-lg btn-dark rounded-pill w-25 my-5">Créer un nouveau</button> </a>
- 
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>titre</th>
-                <th >contenu</th>
-                <th>Date de  publication</th>
-                {# <th>Image</th> #}
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                {# <td>{{ article.id }}</td> #}
-                <td>{{ article.title }}</td>
-                <td >{{ article.content }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('d/m/y') : '' }}</td>
-                {# <td>{{ article.isPublished ? 'Yes' : 'No' }}</td> #}
-                {# <td>{{ article.image }}</td> #}
-                <td>
-                    {# <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir l'article</button></a>
-                    <hr> #}
-                    <a href="{{ path('app_admin_article_edit', {'id': article.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">modifier</button></a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucun Article trouvé</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<a href="{{ path('app_admin_article_new') }}">
+		<button class="btn btn-lg btn-dark rounded-pill my-5">Créer un nouveau</button>
+	</a>
+
+	<table class="table">
+		<thead>
+			<tr>
+				{# <th>Id</th> #}
+				<th>titre</th>
+				<th>contenu</th>
+				{# <th>Date de  publication</th> #}
+				{# <th>Role</th> #}
+				<th>Image</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for article in articles %}
+				<tr>
+					{# <td>{{ article.id }}</td> #}
+					<td>{{ article.title }}</td>
+					<td>{{ article.content|slice(0, 100) }}...</td>
+					{# <td>{{ article.createdAt ? article.createdAt|date('d/m/y') : '' }}</td> #}
+					{# <td>{{ article.roles }}</td>  #}
+					<td><img src="{{ asset('images/articles') }}/{{ article.image }}" class="imgtable" alt="..."></td>
+				
+					<td>
+						{# <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir l'article</button></a>
+						                    <hr> #}
+						<a href="{{ path('app_admin_article_edit', {'id': article.id}) }}">
+							<button class="btn btn-sm btn-dark rounded-pill ">modifier</button>
+						</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="5">Aucun Article trouvé</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}

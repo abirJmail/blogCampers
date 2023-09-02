@@ -6,10 +6,12 @@ use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/admin/article')]
 class AdminArticleController extends AbstractController
@@ -25,7 +27,7 @@ class AdminArticleController extends AbstractController
 
 
     #[Route('/new', name: 'app_admin_article_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $article = new Article();
         $article->setCreatedAt(new DateTimeImmutable());
@@ -33,6 +35,45 @@ class AdminArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+                   /**
+             * TODO: Upload image
+             * 1 - Récupérer l'image (dans une variable avec request) OK
+             * 2 - Modifier le nom de l'image (nom unique)
+             * 3 - Enregistrer l'image dans son répertoire ('articles_images') OK
+             * 4 - Ajouter le nom de l'image à l'objet en cours (setImage) OK
+             */
+            
+            // 1 - Récupérer l'image (dans une variable avec request)
+            $image = $form->get('image')->getData();
+
+            // Si une image a été uploadée
+            if ($image) {
+
+                // 2 - Modifier le nom de l'image (nom unique)
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // Transforme le nom de l'image en slug pour l'URL (minuscule, sans accent, sans espace, etc.)
+                $safeFilename = $slugger->slug($originalFilename);
+
+                // Reconstruit le nom de l'image avec un identifiant unique et son extension
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+
+                // 3 - Enregistrer l'image dans son répertoire ('articles_images')
+                try {
+                    $image->move(
+                        $this->getParameter('articles_images'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    
+                }
+
+                // 4 - Ajouter le nom de l'image à l'objet en cours (setImage)
+                $article->setImage($newFilename);
+            }
+
+
+
             $entityManager->persist($article);
             $entityManager->flush();
 
@@ -55,12 +96,52 @@ class AdminArticleController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_admin_article_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Article $article, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Article $article, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+/**
+             * TODO: Upload image
+             * 1 - Récupérer l'image (dans une variable avec request) OK
+             * 2 - Modifier le nom de l'image (nom unique)
+             * 3 - Enregistrer l'image dans son répertoire ('articles_images') OK
+             * 4 - Ajouter le nom de l'image à l'objet en cours (setImage) OK
+             */
+            
+            // 1 - Récupérer l'image (dans une variable avec request)
+            $image = $form->get('image')->getData();
+
+            // Si une image a été uploadée
+            if ($image) {
+
+                // 2 - Modifier le nom de l'image (nom unique)
+                $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+
+                // Transforme le nom de l'image en slug pour l'URL (minuscule, sans accent, sans espace, etc.)
+                $safeFilename = $slugger->slug($originalFilename);
+
+                // Reconstruit le nom de l'image avec un identifiant unique et son extension
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$image->guessExtension();
+
+                // 3 - Enregistrer l'image dans son répertoire ('articles_images')
+                try {
+                    $image->move(
+                        $this->getParameter('articles_images'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    
+                }
+
+                // 4 - Ajouter le nom de l'image à l'objet en cours (setImage)
+                $article->setImage($newFilename);
+            }
+
+
+
+
             $entityManager->flush();
 
             return $this->redirectToRoute('app_admin_article_index', [], Response::HTTP_SEE_OTHER);

@@ -1,12 +1,14 @@
 .aboutTunisiaCampres {
   position: relative;
-  background-image: url("../../public/images/home/tunisiahome.jpg");
+  background-image: url("https://source.unsplash.com/1000x500/?tunisia");
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
   height: 25rem;
   padding: 5rem 0;
   text-align: center;
+  opacity: 0.9;
+  margin: 0 0 2rem 0;
 }
 .homeArticle {
   color: black;

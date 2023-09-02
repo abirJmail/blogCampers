@@ -1,7 +1,6 @@
 @import url(./home.css);
 @import url(./article.css);
 @import url(./categ.css);
-
 *,
 ::before,
 ::after {
@@ -60,8 +59,18 @@ img {
   max-width: 100%;
   /* height: auto; */
 }
+.imgtable{
+  border-radius: 10%;
+  width: 5rem;
+  height: 6rem;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
 a {
   text-decoration: none !important;
+  color: #000;
 }
 /* footer css  */
 .footer {
@@ -155,5 +164,11 @@ margin: 1rem ;
   }
   .footer--newsletter {
     width: calc(100% / 4);
+  }
+  .imgtable{
+
+    width: 20rem;
+    height: 30rem;
+
   }
 }

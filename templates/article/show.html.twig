@@ -3,13 +3,21 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
 
-    <table class="table">
+<img src="{{ asset('images/articles') }}/{{ article.image }}" class="card-img-top" alt="...">
+    <h1>{{ article.title }}</h1>
+    <div>{{article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</div>
+    <div>{{ article.content }}</div>
+
+    {# <table class="table">
         <tbody>
-            <tr>
+            {# <tr>
                 <th>Id</th>
                 <td>{{ article.id }}</td>
+            </tr> #}
+                        {# <tr>
+                <th>Image</th>
+                <td>{{ article.image }}</td>
             </tr>
             <tr>
                 <th>Title</th>
@@ -22,44 +30,36 @@
             <tr>
                 <th>CreatedAt</th>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
+            </tr> #}
+            {# <tr>
                 <th>IsPublished</th>
                 <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
-        </tbody>
-    </table>
+            </tr> #}
 
-    <a href="{{ path('app_article_index') }}">back to list of article  </a>
-<a href="{{ path('app_category_index') }}">back to list of category  </a>
-<a href="{{ path('app_destination_index') }}">back to list of destination</a>
-<div>
-<a href="{{ path('app_comment_new', {'id':article.id}) }}">ajouter un commentair</a>
-</div>
+        {# </tbody> 
+    </table> #}
+
+    <a href="{{ path('app_article_index') }}">retour   </a>
+
+
               <div> 
-    {% for categorie in categories %}
-        <h2> {{categorie.name}}</h2>
-        <a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
-    {% endfor %}
+LES COMMONTAIRES
     </div>
-          <div> 
-    {% for image in images %}
-        <h2> {{image.image}} images de l'article {{ article.title }}</h2>
-        <div> {{image.description}}</div>
-    {% endfor %}
-    </div>
-
         <div> 
     {% for comment in comment %}
-        <h2> {{comment.User.email}} a dit</h2>
+        <h3> {{comment.User.email}} a dit</h3>
         <div> {{comment.content}}</div>
+        <div>
+{% if is_granted('ROLE_USER') %}
+<a href="{{ path('app_comment_delete', {'id':comment.id}) }}">Supprimer Commentaire</a>
+{% endif %}
+</div>
     {% endfor %}
+    <hr/>
     </div>
-    {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }} #}
+<div>
+{% if is_granted('ROLE_USER') %}
+<a href="{{ path('app_comment_new', {'id':article.id}) }}">ajouter un nouveau commentair</a>
+{% endif %}
+</div>
 {% endblock %}

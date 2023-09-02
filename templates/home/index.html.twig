@@ -61,16 +61,16 @@
 				{% for item in articles|slice(0, 4)  %}
 					{# {% for item in articles %} #}
 					<div class="card mb-3 articlesCard ">
-						<img src="..." class="card-img-top" alt="...">
+						<img src="{{ asset('images/articles') }}/{{ item.image }}" class="card-img-top h-75" alt="...">
 						<div class="card-body">
 							<h5 class="card-title">{{ item.title }}</h5>
 							<p class="card-text">
 								{{ item.content|slice(0, 100) }}...
                                 </p>
                                 <p class="card-text">
-								{% for categorie in categories %}
+								{# {% for categorie in categories %}
 									<a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
-								{% endfor %}
+								{% endfor %} #}
 								{# <small>{{ item.category.name }}</small> #}
 								{# <a href="{{ path('app_category_show', {'id':item.categories.id}) }}">{{item.categories.name}}</a> #}
 							</p>
@@ -89,7 +89,7 @@
 	</div>
 </section>
 <section class="destinationHome">
-	<h2 class="destinationHome">Destination Aventure</h2>
+	<h2 >Destination Aventure</h2>
 	<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-inner w-100">
 			<div class="carousel-item active  ">

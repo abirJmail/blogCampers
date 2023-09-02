@@ -22,12 +22,12 @@
 			</svg>
 		</div>
 	</div>
-    <a href="{{ path('app_admin_destination_new') }}"><button class="btn btn-sm btn-dark rounded-pill w-25 my-5">Créer un nouveau</button> </a>
+    <a href="{{ path('app_admin_destination_new') }}"><button class="btn btn-sm btn-dark rounded-pill  my-5">Créer un nouveau</button> </a>
  
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Image</th>
@@ -37,10 +37,11 @@
         <tbody>
         {% for destination in destinations %}
             <tr>
-                <td>{{ destination.id }}</td>
+                {# <td>{{ destination.id }}</td> #}
                 <td>{{ destination.name }}</td>
                 <td>{{ destination.description }}</td>
-                <td>{{ destination.image }}</td>
+                                <td><img  src="{{ asset('images/destination') }}/{{ destination.image }}" class="imgtable" alt="..."></td>
+                <td>
                 <td>
                     {# <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir Categorie</button></a>
                     <hr> #}

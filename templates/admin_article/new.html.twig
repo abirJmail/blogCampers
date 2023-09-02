@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouveau Article{% endblock %}
 
 {% block body %}
 <div class="aboutTunisiaCampres">
@@ -25,7 +25,7 @@
 
     {{ include('admin_article/_form.html.twig') }}
 
-    <a href="{{ path('app_admin_article_index') }}"><button class="btn btn-lg btn-dark rounded-pill w-25 my-5">Retour à la liste des Articles</button></a>
+    <a href="{{ path('app_admin_article_index') }}"><button class="btn btn-lg btn-dark rounded-pill  my-5">Retour à la liste des Articles</button></a>
 
         {# <div>
 <a href="{{ path('app_admin_image_new', {'id':article.id}) }}">ajouter des images</a>

@@ -20,7 +20,7 @@
 			</svg>
 		</div>
 	</div>
-    <a href="{{ path('app_admin_category_new') }}"><button class="btn btn-sm btn-dark rounded-pill w-25 my-5">Créer un nouveau</button> </a>
+    <a href="{{ path('app_admin_category_new') }}"><button class="btn btn-sm btn-dark rounded-pill  my-5">Créer un nouveau</button> </a>
  
     <table class="table">
         <thead>
@@ -38,7 +38,7 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>{{ category.description }}</td>
-                <td>{{ category.image }}</td>
+                <td><img  src="{{ asset('images/categorys') }}/{{ category.image }}" class="imgtable" alt="..."></td>
                 <td>
                     {# <a href="{{ path('app_admin_category_show', {'id': category.id}) }}"><button class="btn btn-sm btn-dark rounded-pill ">voir Categorie</button></a>
                     <hr> #}

@@ -6,14 +6,15 @@
   color: #fff;
   height: 25rem;
   padding: 5rem 0;
+  margin: 0 0 2rem 0;
   text-align: center;
 }
 .categorymain {
-  padding: 2rem;
+  padding: 0.2rem;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: 49.5% 49.5%;
+  gap: 0.25rem;
 }
 
 .categorie {
@@ -21,13 +22,13 @@
   padding: 20px 5px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   background-blend-mode: color;
   min-height: 350.1px;
   box-shadow: 10px 10px 10px #111;
   transition: background-color 0.25s linear;
   text-align: center;
-  background-size: cover;
+  background-size: cover !important;
   background: url("../../public/images/home/tunisiahome.jpg");
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -44,9 +45,13 @@
 }
 
 .categorie__cd {
-  padding: 20% 0 0 0;
+  /* padding: 20% 0 0 0; */
   text-transform: uppercase;
   opacity: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .categorie__cd:hover {
@@ -56,14 +61,16 @@
 }
 .categorie__imdb {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-self: flex-end;
-  padding: 0 10px;
+  justify-content: center;
+  align-items:flex-end;
+  /* justify-self: flex-end; */
+  padding:  10px;
+  color: #fff;
+  height: 50%;
 }
 
 .categorie__imdb-button {
-  width: 100%;
+  width: 70%;
   /* height: 30px; */
   border-radius: 5px;
   background-color: #ebba33;
@@ -86,6 +93,7 @@
   .categorymain {
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
+    padding: 2rem;
   }
 
   .categorie {
@@ -93,5 +101,12 @@
     padding: 20px 5px 10px;
     max-width: 350px;
     height: 480.1px;
-  }
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
 }
