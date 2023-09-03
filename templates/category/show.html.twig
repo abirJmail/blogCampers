@@ -1,76 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{% block title %}Category
+{% endblock %}
 
 {% block body %}
-    <h1>Category  : {{ category.name }}</h1>
+	<div class="showArticle" style="background-image:url('{{ asset('images/articles') }}/{{ category.image }}')">
+		<div class="showArticleTitle">
+			<h2>Découvrez notre sélection d'articles pour :</h2>
+			<h1>{{ category.name }}</h1>
+		</div>
+	</div>
+	<h3 class="w-75 p-3">{{ category.description }}</h3>
+	<div class="articleCards">
+		{% for item in articles %}
+			<div class="card mb-3 ">
+				<img src="{{ asset('images/articles') }}/{{ item.image }}" class="card-img-top h-75" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{ item.title }}</h5>
+					<small class="text-body-secondary">
+						{{ item.createdAt ? item.createdAt|date('Y-m-d') : '' }}
+					</small>
+					<p class="card-text">
+						{{ item.content|slice(0, 120) }}...
+					</p>
+					<p class="card-text ">
+						<small class="text-body-secondary">
+							<a href={{ path('app_article_show',{'id':item.id } ) }} class="btn btn-sm btn-dark rounded-pill w-50">Lire l'article</a>
+						</small>
+					</p>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ category.description }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ category.image }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <a href="{{ path('app_category_index') }}">back to list</a>
+	{# <a href="{{ path('app_category_index') }}">liste de categories</a> #}
 
-    {# <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a> #}
-
-    {# {{ include('category/_delete_form.html.twig') }} #}
-
-        <h1>Article  index of catregory {{ category.name }}</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>Title</th>
-                <th>Content</th>
-                <th>CreatedAt</th>
-                {# <th>IsPublished</th> #}
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                {# <td>{{ article.id }}</td> #}
-                <td>{{ article.title }}</td>
-                <td>{{ article.content }}</td>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                {# <td>{{ article.isPublished ? 'Yes' : 'No' }}</td> #}
-                <td><img src="{{ asset('images/categorys') }}/{{ article.image }}" class="card-img-top" alt="..."></td>
-                <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">voir les articles</a>
-                    {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a> #}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <div> 
-    {% for destination in destinations %}
-        <h2>destination {{destination.name}}</h2>
-    {% endfor %}
-    </div>
 {% endblock %}
