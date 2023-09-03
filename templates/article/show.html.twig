@@ -1,65 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article{% endblock %}
+{% block title %}
+	{{ article.title }}
+{% endblock %}
 
 {% block body %}
+	<div class="showArticle" style="background-image:url('{{ asset('images/articles') }}/{{ article.image }}')">
+		<div class="showArticleTitle">
+			<h1>{{ article.title }}</h1>
+			<div>Publié le
+				{{article.createdAt ? article.createdAt|date('Y-m-d') : '' }}</div>
+		</div>
+		{# <img src="{{ asset('images/articles') }}/{{ article.image }}" class="card-img-top" alt="..."> #}
+	</div>
 
-<img src="{{ asset('images/articles') }}/{{ article.image }}" class="card-img-top" alt="...">
-    <h1>{{ article.title }}</h1>
-    <div>{{article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</div>
-    <div>{{ article.content }}</div>
-
-    {# <table class="table">
-        <tbody>
-            {# <tr>
-                <th>Id</th>
-                <td>{{ article.id }}</td>
-            </tr> #}
-                        {# <tr>
-                <th>Image</th>
-                <td>{{ article.image }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ article.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ article.content }}</td>
-            </tr>
-            <tr>
-                <th>CreatedAt</th>
-                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr> #}
-            {# <tr>
-                <th>IsPublished</th>
-                <td>{{ article.isPublished ? 'Yes' : 'No' }}</td>
-            </tr> #}
-
-        {# </tbody> 
-    </table> #}
-
-    <a href="{{ path('app_article_index') }}">retour   </a>
+	<div class="showArticleContent">
+		<h2>{{ article.title }}</h2>
+		<div>
+			{{ article.content }}</div>
+		{# 
+		    <a href="{{ path('app_article_index') }}">retour   </a> #}
 
 
-              <div> 
-LES COMMONTAIRES
-    </div>
-        <div> 
-    {% for comment in comment %}
-        <h3> {{comment.User.email}} a dit</h3>
-        <div> {{comment.content}}</div>
-        <div>
-{% if is_granted('ROLE_USER') %}
-<a href="{{ path('app_comment_delete', {'id':comment.id}) }}">Supprimer Commentaire</a>
-{% endif %}
-</div>
-    {% endfor %}
-    <hr/>
-    </div>
-<div>
-{% if is_granted('ROLE_USER') %}
-<a href="{{ path('app_comment_new', {'id':article.id}) }}">ajouter un nouveau commentair</a>
-{% endif %}
-</div>
+		<div>
+			<h3>
+				{{ article.comment|length }}
+				Commentaires sur l'article «{{ article.title }}»</h3>
+
+
+			<div>
+				{% for comment in comment %}
+					<hr/>
+					<h3>
+						{{comment.User.email}}
+						a dit :</h3>
+                        <p>Publié le
+				{{comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</p>
+					<div>
+						{{comment.content}}</div>
+
+				{% endfor %}
+			</div>
+			<div>
+				{% if is_granted('ROLE_USER') %}
+					{# <a href="{{ path('app_comment_new', {'id':article.id}) }}">
+						<button class="btn btn-sm btn-dark rounded-pill ">Laisser un commentaire</button>
+					</a> #}
+                    <hr/>
+                        {{ include('comment/_form.html.twig') }}
+
+				{% endif %}
+			</div>
+		</div>
+	</div>
 {% endblock %}

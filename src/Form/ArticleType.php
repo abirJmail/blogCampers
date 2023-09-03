@@ -8,6 +8,7 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Destination;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -29,7 +30,7 @@ class ArticleType extends AbstractType
                 ],
             ])
             ->add(
-                'content',TextType::class, [
+                'content',CKEditorType::class, [
                     'label' => 'content de l\'article',
                     'attr' => [
                         'class' => 'form-control Textarea mb-3 w-75 ',

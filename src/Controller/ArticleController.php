@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use DateTimeImmutable;
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\Article1Type;
+use App\Form\Comment1Type;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -12,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+// use Symfony\Component\DependencyInjection\Loader\Configurator\request;
 
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -46,17 +50,34 @@ class ArticleController extends AbstractController
     //     ]);
     // }
 
-    #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
-    public function show(Article $article, CategoryRepository $categoryRepository): Response
+    #[Route('/{id}', name: 'app_article_show', methods: ['GET', 'POST'])]
+    public function show(Request $request,Article $article ,EntityManagerInterface $entityManager,CategoryRepository $categoryRepository): Response
     {
+
+        $comment = new Comment();
+        $comment->setCreatedAt(new DateTimeImmutable());
+        $comment->setUser($this->getUser());
+        $comment->setArticle($article);
+        $form = $this->createForm(Comment1Type::class, $comment);
+        $form->handleRequest($request);
         // $categorys = $article-> getCategory();
         $images = $article-> getImages();
         $comments = $article-> getComment();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_article_show', ['id' =>$article->getID()], Response::HTTP_SEE_OTHER);
+        }
+
+
+        
         return $this->render('article/show.html.twig', [
             'article' => $article,
             'comment'=>$comments,
             'images'=>$images,
             'categories' => $categoryRepository->findAll(),
+            'form' => $form,
         ]);
     }
 
