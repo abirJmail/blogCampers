@@ -4,7 +4,8 @@
 {% endblock %}
 
 {% block body %}
-	<form method="post">
+
+	<form class="loginHome" method="post">
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
@@ -16,8 +17,9 @@
 				<a href="{{ path('app_logout') }}">Deconnecter</a>
 			</div>
 		{% endif %}
-<h1>Compte</h1><hr/>
-		<h2 class="h3 mb-3 font-weight-normal">C’est un plaisir de vous revoir !</h2> <hr/>
+		<h1>Compte</h1><hr/>
+		<h2 class="h3 mb-3 font-weight-normal">C’est un plaisir de vous revoir !</h2>
+		<hr/>
 		<div class="login">
 			<label for="inputEmail">Email</label>
 			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -29,11 +31,12 @@
 				Se Connetcter
 			</button>
 		</form>
-				<p>
+		<p>
 			Vous n'avez pas encore de compte ?
-			<a href={{ path('app_register') }}>
-			<button type="submit" class="btn btn-lg btn-dark rounded-pill w-25 my-5">Créez-en un !</button>
-			</a>
 		</p>
+		<a href={{ path('app_register') }}>
+			<button type="submit" class="btn btn-lg btn-dark rounded-pill w-50 my-1">Créez-en un !</button>
+		</a>
+
 	</div>
 {% endblock %}
