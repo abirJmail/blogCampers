@@ -3,11 +3,5 @@
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
   "build/images/tunisiahome.jpg": "/build/images/tunisiahome.4bbd531c.jpg",
-  "build/images/tozeur.jpg": "/build/images/tozeur.2409ccc9.jpg",
-  "build/images/campresGroupe.jpg": "/build/images/campresGroupe.5717228c.jpg",
-  "build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-f2dd87.js": "/build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-f2dd87.js",
-  "build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-611fbe.js": "/build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-611fbe.js",
-  "build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_array-d35eb0.js": "/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_array-d35eb0.js",
-  "build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-e8fa56.js": "/build/vendors-node_modules_core-js_modules_es_error_cause_js-node_modules_core-js_modules_es_error_-e8fa56.js",
-  "build/vendors-node_modules_core-js_modules_es_function_name_js.js": "/build/vendors-node_modules_core-js_modules_es_function_name_js.js"
+  "build/images/campresGroupe.jpg": "/build/images/campresGroupe.5717228c.jpg"
 }

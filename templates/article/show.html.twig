@@ -32,7 +32,7 @@
 				{% for comment in comment %}
 					<hr/>
 					<h3>
-						{{comment.User.email}}
+						{{comment.User.username}}
 						a dit :</h3>
                         <p>Publié le
 				{{comment.createdAt ? comment.createdAt|date('Y-m-d') : '' }}</p>

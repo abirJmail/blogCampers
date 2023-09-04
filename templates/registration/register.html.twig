@@ -11,12 +11,18 @@
 
 	<h1>Créez votre compte personnel</h1>
 	<hr/>
-<h2>Configurez vos informations personnelles pour continuer</h2>
+<h3>Configurez vos informations personnelles pour continuer</h3>
 <div class="login">
 	{{ form_errors(registrationForm) }}
 
 	{{ form_start(registrationForm) }}
 	<div >
+	   {{ form_row(registrationForm.username,{
+		            label: 'name',
+			                attr: {
+                    'class': 'form-control w-25',
+                },
+	}) }}
 	{{ form_row(registrationForm.email,{
 		            label: 'email',
 			                attr: {
@@ -38,7 +44,7 @@
         }) }}
 	</div>
 	<div >
-	<button type="submit" class="btn btn-lg btn-dark rounded-pill w-25 my-5">S’enregistrer</button>
+	<button type="submit" class="btn btn-lg btn-dark rounded-pill w-25 my-5">Créer mon compte</button>
 	{{ form_end(registrationForm) }}
 </div>
 </div>
