@@ -1,4 +1,6 @@
 .aboutTunisiaCampres {
+  /* text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue; */
+  text-shadow: 0.1em 0.1em 0.2em black;
   position: relative;
   background-image: url("https://source.unsplash.com/1000x500/?tunisia");
   background-repeat: no-repeat;
