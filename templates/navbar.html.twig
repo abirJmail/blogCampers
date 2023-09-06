@@ -19,6 +19,10 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('app_destination_index')}}">Destinations</a>
 				</li>
+								<li class="nav-item">
+					<a class="nav-link" href="{{path('app_contact')}}">Contact</a>
+				</li>
+				
 				{% if is_granted('ROLE_ADMIN') %}
 					{# Affiche les infos uniquement lorsque l'ADIMIN est connecté #}
 					<li class="nav-item dropdown">
@@ -78,19 +82,16 @@
 					</li>
 
 				{% else %}
-					{# <li class="nav-item">
-						<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
-					</li> #}
 					<li class="nav-item">
 						<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
 					</li>
 				{% endif %}
 			</ul>
+			{# barre de recherche app_lookup name=search #}
 			<form class="d-flex" role="search" action="{{path('app_lookup')}}" method="GET">
 				<input class="form-control me-2" name="search" type="search" placeholder="Rechercher..." aria-label="Search">
 				<button class="btn btn-outline-dark" type="submit">Rechercher</button>
 			</form>
-			{# <button id="theme">☾</button> #}
 		</div>
 	</div>
 </nav>

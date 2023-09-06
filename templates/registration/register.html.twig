@@ -4,51 +4,51 @@
 {% endblock %}
 
 {% block body %}
-<div class="loginBody ">
-<div class="loginHome rect">
-	{% for flash_error in app.flashes('verify_email_error') %}
-		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
-	{% endfor %}
+	<div class="loginBody ">
+		<div class="loginHome rect">
+			{% for flash_error in app.flashes('verify_email_error') %}
+				<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+			{% endfor %}
 
-	<h2>Créez votre compte personnel</h2>
-	<hr/>
-<h4>Configurez vos informations personnelles pour continuer</h4>
-<div class="login">
-	{{ form_errors(registrationForm) }}
+			<h2>Créez votre compte personnel</h2>
+			<hr/>
+			<h4>Configurez vos informations personnelles pour continuer</h4>
+			<div class="login">
+				{{ form_errors(registrationForm) }}
 
-	{{ form_start(registrationForm) }}
-	<div >
-	   {{ form_row(registrationForm.username,{
+				{{ form_start(registrationForm) }}
+				<div>
+					{{ form_row(registrationForm.username,{
 		            label: 'name',
 			                attr: {
                     'class': 'form-control ',
                 },
 	}) }}
-	{{ form_row(registrationForm.email,{
+					{{ form_row(registrationForm.email,{
 		            label: 'email',
 			                attr: {
                     'class': 'form-control ',
                 },
 	}) }}
-	</div>
-	<div >
-	{{ form_row(registrationForm.plainPassword, {
+				</div>
+				<div>
+					{{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe',
 			                attr : {
                     'class': 'form-control ',
                 },
         }) }}
-			</div>
-	<div >
-	{{ form_row(registrationForm.agreeTerms,{
+				</div>
+				<div>
+					{{ form_row(registrationForm.agreeTerms,{
             label: 'J’accepte les conditions d’utilisation'
         }) }}
+				</div>
+				<div>
+					<button type="submit" class="btn btn-lg btn-dark rounded-pill my-5">Créer mon compte</button>
+					{{ form_end(registrationForm) }}
+				</div>
+			</div>
+		</div>
 	</div>
-	<div >
-	<button type="submit" class="btn btn-lg btn-dark rounded-pill my-5">Créer mon compte</button>
-	{{ form_end(registrationForm) }}
-</div>
-</div>
-</div>
-</div>
 {% endblock %}
