@@ -4,39 +4,41 @@
 {% endblock %}
 
 {% block body %}
+	<div class="loginBody ">
+		<form class="loginHome rect" method="post">
+			{% if error %}
+				<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
 
-	<form class="loginHome" method="post">
-		{% if error %}
-			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
+			{% if app.user %}
+				<div class="">
+					Bonjour
+					{{ app.user.userIdentifier }},
+					<a href="{{ path('app_logout') }}">Deconnecter</a>
+				</div>
+			{% endif %}
+			<h1>Connexion</h1><hr/>
+			<h2 class=" font-weight-normal">C’est un plaisir de vous revoir !</h2>
+			<hr/>
+			<div class="login">
+				<label for="inputEmail">Email</label>
+				<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+				<label for="inputPassword">Mot de passe</label>
+				<input type="password" name="password" id="inputPassword" class="form-control " autocomplete="current-password" required>
 
-		{% if app.user %}
-			<div class="mb-3">
-				You are logged in as
-				{{ app.user.userIdentifier }},
-				<a href="{{ path('app_logout') }}">Deconnecter</a>
-			</div>
-		{% endif %}
-		<h1>Compte</h1><hr/>
-		<h2 class="h3 mb-3 font-weight-normal">C’est un plaisir de vous revoir !</h2>
-		<hr/>
-		<div class="login">
-			<label for="inputEmail">Email</label>
-			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-			<label for="inputPassword">Mot de passe</label>
-			<input type="password" name="password" id="inputPassword" class="form-control " autocomplete="current-password" required>
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+				<button class="btn btn-lg btn-dark rounded-pill  my-3" type="submit">
+					Se Connetcter
+				</button>
+			</form>
+			<p>
+				Vous n'avez pas encore de compte ?
 
-			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-			<button class="btn btn-lg btn-dark rounded-pill  my-5" type="submit">
-				Se Connetcter
-			</button>
-		</form>
-		<p>
-			Vous n'avez pas encore de compte ?
-		</p>
-		<a href={{ path('app_register') }}>
-			<button type="submit" class="btn btn-lg btn-dark rounded-pill w-50 my-1">Créez-en un !</button>
-		</a>
-
+				<a href={{ path('app_register') }} class="text-dark">
+					<u>
+						Créez-en un !</u>
+				</a>
+			</p>
+		</div>
 	</div>
 {% endblock %}

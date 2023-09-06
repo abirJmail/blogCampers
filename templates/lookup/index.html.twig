@@ -12,11 +12,11 @@
  <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                {# <th>CreatedAt</th>
-                <th>IsPublished</th>
+                {# <th>Id</th> #}
+                <th>Titre</th>
+                <th>Article</th>
+                <th>CreatedAt</th>
+                {# <th>IsPublished</th>
                 <th>Image</th> #}
                 <th>actions</th>
             </tr>
@@ -24,14 +24,14 @@
         <tbody>
         {% for article in articles %}
             <tr>
-                <td>{{ article.id }}</td>
+                {# <td>{{ article.id }}</td> #}
                 <td>{{ article.title }}</td>
                 <td>{{ article.content }}</td>
-                {# <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 {# <td>{{ article.isPublished ? 'Yes' : 'No' }}</td> #}
                 {# <td>{{ article.image }}</td> #}
                 <td>
-                    <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+                    <a class="text-black" href="{{ path('app_article_show', {'id': article.id}) }}">Lire l'article</a>
                     {# <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a> #}
                 </td>
             </tr>

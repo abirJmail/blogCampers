@@ -1,8 +1,8 @@
 .aboutTunisiaCampres {
-  /* text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue; */
-  text-shadow: 0.1em 0.1em 0.2em black;
+  /*text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+  */text-shadow: 0.1em 0.1em 0.2em black;
   position: relative;
-  background-image: url("https://source.unsplash.com/1000x500/?tunisia");
+  background-image:url("https://source.unsplash.com/1000x500/?tunisia");
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
@@ -11,6 +11,19 @@
   text-align: center;
   opacity: 0.9;
   margin: 0 0 2rem 0;
+
+}
+
+.card-body{
+  display: flex;
+  justify-content: space-between;
+  flex-direction:column;
+}
+.card img{
+  height: 250px;
+}
+.articlesCard img{
+  height: 30%;
 }
 .homeArticle {
   color: black;
@@ -144,4 +157,14 @@ section logos */
   .articles {
     width: 60%;
   }
+  .articlesCard img{
+    height: 70%;
+  }
+  .card img{
+    height: 300px;
+  }
+  .bottom-card{
+    width: 50%;
+  }
+
 }

@@ -4,14 +4,15 @@
 {% endblock %}
 
 {% block body %}
-
+<div class="loginBody ">
+<div class="loginHome rect">
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 	{% endfor %}
 
-	<h1>Créez votre compte personnel</h1>
+	<h2>Créez votre compte personnel</h2>
 	<hr/>
-<h3>Configurez vos informations personnelles pour continuer</h3>
+<h4>Configurez vos informations personnelles pour continuer</h4>
 <div class="login">
 	{{ form_errors(registrationForm) }}
 
@@ -20,13 +21,13 @@
 	   {{ form_row(registrationForm.username,{
 		            label: 'name',
 			                attr: {
-                    'class': 'form-control w-25',
+                    'class': 'form-control ',
                 },
 	}) }}
 	{{ form_row(registrationForm.email,{
 		            label: 'email',
 			                attr: {
-                    'class': 'form-control w-25',
+                    'class': 'form-control ',
                 },
 	}) }}
 	</div>
@@ -34,7 +35,7 @@
 	{{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe',
 			                attr : {
-                    'class': 'form-control w-25',
+                    'class': 'form-control ',
                 },
         }) }}
 			</div>
@@ -44,8 +45,10 @@
         }) }}
 	</div>
 	<div >
-	<button type="submit" class="btn btn-lg btn-dark rounded-pill w-25 my-5">Créer mon compte</button>
+	<button type="submit" class="btn btn-lg btn-dark rounded-pill my-5">Créer mon compte</button>
 	{{ form_end(registrationForm) }}
+</div>
+</div>
 </div>
 </div>
 {% endblock %}

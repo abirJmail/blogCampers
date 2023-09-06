@@ -79,7 +79,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'attr' => [
                     'class' => 'mb-3 mx-3 form-check-input',
-                    'checked' => 'checked'
+                    // 'checked' => 'checked'
                 ]
             ])
             ->add('plainPassword', PasswordType::class, [

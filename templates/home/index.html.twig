@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="aboutTunisiaCampres">
+	<section class="aboutTunisiaCampres ">
 		<div class="custom-shape-divider-top-1693049623">
 			<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1200 120" preserveaspectratio="none">
 				<path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -60,23 +60,16 @@
 
 				{% for item in articles|slice(0, 4)  %}
 					{# {% for item in articles %} #}
-					<div class="card mb-3 articlesCard ">
-						<img src="{{ asset('images/articles') }}/{{ item.image }}" class="card-img-top h-75" alt="...">
+					<div class="card articlesCard ">
+						<img src="{{ asset('images/articles') }}/{{ item.image }}" class="card-img-top " alt="...">
 						<div class="card-body">
 							<h5 class="card-title">{{ item.title }}</h5>
 							<p class="card-text">
 								{{ item.content|slice(0, 100) }}...
                                 </p>
-                                <p class="card-text">
-								{# {% for categorie in categories %}
-									<a href="{{ path('app_category_show', {'id':categorie.id}) }}">{{categorie.name}}</a>
-								{% endfor %} #}
-								{# <small>{{ item.category.name }}</small> #}
-								{# <a href="{{ path('app_category_show', {'id':item.categories.id}) }}">{{item.categories.name}}</a> #}
-							</p>
 							<p class="card-text ">
-								<small class="text-body-secondary">
-									<a href={{ path('app_article_show',{'id':item.id } ) }} class="btn btn-sm btn-dark rounded-pill w-50">Lire l'article</a>
+								<small class="text-body-secondary bottom-card">
+									<a href={{ path('app_article_show',{'id':item.id } ) }} class="btn btn-sm btn-dark rounded-pill ">Lire l'article</a>
 								</small>
 							</p>
 						</div>

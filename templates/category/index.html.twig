@@ -25,15 +25,15 @@
 
 
 			<div class='categorie' style="background-image:url('{{ asset("images/articles") }}/{{ category.image }}')">
-							<div class='categorie__imdb'>
+				<div class='categorie__imdb'>
 
-<h2 class='categorie__title'>{{ category.name }}</h2>
+					<h2 class='categorie__title'>{{ category.name }}</h2>
 
 				</div>
 				<div class='categorie__cd'>
-					
+
 					<p class='categorie__description'>{{  category.description|slice(0, 100)  }}</p>
-										<button class='categorie__imdb-button' target='blank'>
+					<button class='categorie__imdb-button' target='blank'>
 						<a href="{{ path('app_category_show', {'id': category.id}) }}">voir les articles</a>
 					</button>
 				</div>

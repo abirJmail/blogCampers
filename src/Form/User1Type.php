@@ -17,10 +17,15 @@ class User1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        ->add('username', TextType::class, [
+            'label' => '',
+            'attr' => [
+                'class' => 'form-control mb-3 '
+            ],  ])
         ->add('email', TextType::class, [
             'label' => '',
             'attr' => [
-                'class' => 'form-control mb-3 w-50'
+                'class' => 'form-control mb-3 '
             ],  ])
             // ->add('roles')
             ->add('plainPassword', PasswordType::class, [
