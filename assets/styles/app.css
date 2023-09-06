@@ -154,12 +154,22 @@ a {
   flex-direction: column;
   gap: 2rem;
 }
+.footerSocialUl{
+  /* background: -webkit-linear-gradient(top, #666, #666); */
+  color: #fcfafa;
+  text-shadow: rgba(255,255,255,0.5) 0px 2px 3px;
+}
 
   .footerSocialUl :hover{
     font-weight: 800 !important;
-    color: rgb(239, 223, 9) !important;
+    color: #666;
+    /* color: rgb(239, 223, 9) !important; */
+    text-shadow: rgba(0,0,0,.5) 0px 2px 3px;
       }
-
+      .navbar-nav  :hover{
+        color: #666;
+        text-shadow: rgba(0,0,0,.5) 0px 2px 3px;
+      }
 
 .Form {
   display: flex;
@@ -206,7 +216,10 @@ margin: 1rem ;
  background-color: #fff;
 }
 
-
+/* .bg_black {
+  --tw-bg-opacity: 1;
+  background-color: rgba(26, 28, 29, var(--tw-bg-opacity));
+} */
 /* 
       -------------------------------------------------------------------------midia------------------------------------------------------------------------------ */
 @media screen and (min-width: 75em) {
